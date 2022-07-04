@@ -1,0 +1,21 @@
+extends base
+include mixins/video
+
+block content
+    if fakeUser.loggedIn
+        small Hello #{fakeUser.name} 
+    nav
+        ul 
+            if fakeUser.loggedIn
+                li 
+                    a(href='/logout') Logout
+            else
+                li 
+                    a(href='/login') Login 
+    h1 homepage~~
+    input(placeholder ="input your name")
+    button send
+
+    div 
+        each video in fakeVideos
+            +video(video)
